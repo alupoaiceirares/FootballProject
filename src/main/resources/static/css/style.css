@@ -1,0 +1,50 @@
+#footermenu li{
+     list-style-type: none;
+ }
+
+#footermenu2 li{
+    list-style-type: none;
+}
+
+footer {
+
+    position: absolute;
+    bottom:0px;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100px;
+    text-align: center; }
+
+#tableleague {
+    table-layout: fixed;
+    overflow-y:scroll;
+    height:650px;
+
+    display: block;
+}
+#tableleague th, td {
+    padding: 5px;
+}
+
+#tableteam {
+     table-layout: fixed;
+     overflow-y:scroll;
+     height:650px;
+
+     display: block;
+ }
+#tableteam th, td {
+    padding: 5px;
+}
+
+#tableplayer {
+    table-layout: fixed;
+    overflow-y:scroll;
+    height:650px;
+
+    display: block;
+}
+#tableplayer th, td {
+    padding: 5px;
+}

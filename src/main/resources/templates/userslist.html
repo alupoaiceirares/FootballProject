@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::header">
+
+</head>
+<body>
+<div th th:replace="common/header::navbar">
+</div>
+<div class="container">
+    <form action="/users" class="form-inline">
+        <div class="form-group mb-2">
+            <input type="text" class="form-control" name="name" placeholder="Search User" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+    <div class="card">
+        <div class="card card-body">
+            <table class="table-hover">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.firstname}"></td>
+                    <td th:text="${user.lastname}"></td>
+                    <td th:text="${user.email}"> </td>
+                    <!--<td><a th:href="@{/addTask(email=${user.email})}" class="btn btn-dark">Add Task</a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<div th:replace="common/header :: footer" > </div>
+
+<div th:replace="common/header :: body-bottom-scripts" > </div>
+</body>
+</html>

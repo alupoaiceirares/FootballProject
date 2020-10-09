@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::header">
+
+</head>
+<body>
+<div th th:replace="common/header::navbar">
+</div>
+<div class="container">
+    <form action="/leagues" class="form-inline">
+        <div class="form-group mb-2">
+            <input type="text" class="form-control" name="name" placeholder="Search League" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+    <div class="card">
+        <div class="card card-body">
+            <table id = "tableleague" class="table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th></th>
+                    <th>Country</th>
+                    <th></th>
+                    <th>Number of Teams</th>
+                    <th></th>
+                    <th>Number of Rounds</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="league : ${leagues}">
+                    <td th:text="${league.name}"></td>
+                    <td></td>
+                    <td th:text="${league.country}"></td>
+                    <td></td>
+                    <td th:text="${league.noOfTeams}"> </td>
+                    <td></td>
+                    <td th:text="${league.noOfRounds}"></td>
+                    <!--<td><a th:href="@{/addTask(email=${user.email})}" class="btn btn-dark">Add Task</a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<div th:replace="common/header :: footer" > </div>
+
+<div th:replace="common/header :: body-bottom-scripts" > </div>
+</body>
+</html>

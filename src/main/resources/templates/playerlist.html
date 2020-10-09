@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::header">
+
+</head>
+<body>
+<div th th:replace="common/header::navbar">
+</div>
+<div class="container">
+    <form action="/players" class="form-inline">
+        <div class="form-group mb-2">
+            <input type="text" class="form-control" name="name" placeholder="Search Player" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </div>
+    </form>
+    <div class="card">
+        <div class="card card-body">
+            <table id = "tableplayer" class="table-hover">
+                <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th></th>
+                    <th>Lastname</th>
+                    <th></th>
+                    <th>Age</th>
+                    <th></th>
+                    <th>Position</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="player : ${players}">
+                    <td th:text="${player.firstname}"></td>
+                    <td></td>
+                    <td th:text="${player.lastname}"></td>
+                    <td></td>
+                    <td th:text="${player.age}"> </td>
+                    <td></td>
+                    <td th:text="${player.position}"></td>
+                    <!--<td><a th:href="@{/addTask(email=${user.email})}" class="btn btn-dark">Add Task</a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<div th:replace="common/header :: footer" > </div>
+
+<div th:replace="common/header :: body-bottom-scripts" > </div>
+</body>
+</html>

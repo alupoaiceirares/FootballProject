@@ -1,0 +1,151 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<header lang="en" th:fragment="header">
+    <link rel="stylesheet" href="../../static/css/style.css" th:href="@{css/style.css}"/>
+
+    <link rel="stylesheet" href="../../static/css/darkly/bootstrap.min.css"  th:href="@{css/darkly/bootstrap.min.css}"/>
+    <!--
+    <script th:src="@{webjars/jquery/jquery.min.js}"></script>
+    -->
+    <!--<script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+
+
+
+
+</header>
+
+<body>
+<div th:fragment="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">ARD Football</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Matchday</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="!isAuthenticated()">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" href="/users">UsersList</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" href="/leagues">League List</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" href="/teams">Team List</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" href="/players">Player List</a>
+            </li>
+
+            <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                <a class="nav-link" href="/operations">Admin Functions</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Leagues</a>
+                    <a class="dropdown-item" href="#">Teams</a>
+                    <a class="dropdown-item" href="#">Players</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" >
+            <input class="form-control mr-sm-2" type="hidden" />
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit" sec:authorize="isAuthenticated()">Logout</button>
+        </form>
+    </div>
+</nav>
+
+</div>
+
+<div th:fragment="footer">
+    <br/><br/>
+    <footer>
+        <div class="row">
+            <div class="col-sm-3">
+                <p> ADR Sports <br/> Serving our customers with the best </p>
+            </div>
+            <div class="col-sm-3">
+                <h6 class="heading7">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Contact</h6>
+                <ul class="post">
+                    <p><i class="fa fa-map-pin"></i> 123 XXX Street <br/> Cluj-Napoca Romania </p>
+                    <p><i class="fa fa-phone"></i>RO : +4 0761129845  </p>
+                    <p><i class="fa fa-envelope"></i> Email: raresalupoaicei@gmail.com  </p>
+                </ul>
+            </div>
+            <div class="col-sm-3 ">
+                <h6 class="heading7">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Links</h6>
+                <ul id = "footermenu2" class="footer-ul">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &#38; Conditions</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-3">
+                <h6 class="heading7">Store Hours</h6>
+                <div class="post">
+                    <p> Monday-Saturday : 09.00 - 18.00</p>
+                    <p>Sunday : 10.00 - 16.00 </p>
+
+                </div>
+            </div>
+        </div>
+
+
+    <div class="copyright text-center">
+        <div class="col-md-12">
+            <p>&nbsp&nbsp 2024 - All Rights Reserved</p>
+        </div>
+        <div class="col-md-12">
+            <ul id="footermenu" class="bottom-ul text-center" >
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+
+</div>
+
+
+
+
+<div th:fragment="body-bottom-scripts">
+<!--    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="/js/bootstrap.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/scripts.js"></script>
+
+    <!-- data table -->
+    <script th:src="@{/js/jquery.dataTables.min.js}"></script>
+    <script th:src="@{/js/dataTables.bootstrap.min.js}"></script>
+
+</div>
+</body>
+</html>

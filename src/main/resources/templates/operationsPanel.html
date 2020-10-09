@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header::header">
+
+</head>
+<body>
+<div th th:replace="common/header::navbar">
+</div>
+<div class="container">
+    <div class="jumbotron">
+        <div class="btn-group" role="group" aria-label="Add Things">
+            <a href="/addPlayer">
+                <button type="button" class="btn btn-primary">Add Player</button>
+            </a>
+
+            <a href="/addTeam">
+            <button type="button" class="btn btn-primary">Add Team</button>
+            </a>
+            <a href="/addLeague">
+            <button type="button" class="btn btn-primary">Add League</button>
+            </a>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="btn-group" role="group" aria-label="Create Bond Things">
+            <a href="/addTeamToLeague">
+                <button type="button" class="btn btn-primary">Add Team to a League</button>
+            </a>
+
+            <a href="/addPlayerToTeam">
+                <button type="button" class="btn btn-primary">Add Player to a Team</button>
+            </a>
+            <a href="/jhg">
+                <button type="button" class="btn btn-primary">Add League</button>
+            </a>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="btn-group" role="group" aria-label="Delete Things">
+            <a href="/deletePlayer">
+                <button type="button" class="btn btn-danger">Delete Player</button>
+            </a>
+
+            <a href="/deleteTeam">
+                <button type="button" class="btn btn-danger">Delete Team</button>
+            </a>
+            <a href="/deleteLeague">
+                <button type="button" class="btn btn-danger">Delete League</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="common/header :: footer" > </div>
+
+<div th:replace="common/header :: body-bottom-scripts" > </div>
+</body>
+</html>
